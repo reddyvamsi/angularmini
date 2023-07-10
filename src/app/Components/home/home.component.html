@@ -1,0 +1,27 @@
+   <app-header></app-header>
+<div class="main-conatiner">
+    <div class="all-movies">
+        <div class="trending-movies">
+        <div class="top">
+            <h4>Trending movies</h4>
+            <div class="view-all">Viewall</div>
+        </div>
+        <div class="movies-thumnail">
+            <div class="movies" *ngFor="let movie of Trendingmovies">
+        <div class="cover">
+            <img  [src]="movie.cover" alt="">
+         </div>
+         <div class="details">
+             <div class="name">
+             {{movie.name}}
+             </div>
+             <div class="rating">
+                {{movie.rating}}
+             </div>
+             </div>
+         </div>
+        </div>
+        </div>
+    </div>
+    <div class="popular-movies"></div>
+</div>

@@ -1,0 +1,51 @@
+.main-conatiner {
+  display: flex;
+}
+.all-movies {
+  width: 75%;
+  height: 100%;
+  min-height: calc(100vh - 80px) !important;
+  border-right: 2px solid yellow;
+  padding: 20px 40px;
+  font-family: "Roboto", sans-serif;
+}
+.popular-movies {
+  width: 25%;
+  height: 100%;
+  min-height: calc(100vh - 80px) !important ;
+  padding: 20px 40px;
+  font-family: "Roboto", sans-serif;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+  border-left: 5px solid red;
+}
+.view-all {
+  color: darkgoldenrod;
+  cursor: pointer;
+}
+.movies-thumnail {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  
+}
+img {
+  border-radius: 5px;
+}
+.details {
+  width: 180px;
+}
+.name {
+  font-weight: bold;
+  height: 50px;
+  margin-top: 5px;
+  cursor: pointer;
+}
