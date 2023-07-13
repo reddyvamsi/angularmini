@@ -8,7 +8,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MovieComponent } from './Components/movie/movie.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FeatureModule } from './feature/feature.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    FeatureModule
   ],
   
   providers: [],
