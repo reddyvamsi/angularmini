@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { MovieComponent } from './Components/movie/movie.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FeatureModule } from './feature/feature.module';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FeatureModule } from './feature/feature.module';
     HomeComponent,
     HeaderComponent,
     MovieComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

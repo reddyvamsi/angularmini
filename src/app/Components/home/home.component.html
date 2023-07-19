@@ -7,7 +7,7 @@
             <div class="view-all">Viewall</div>
         </div>
         <div class="movies-thumnail">
-            <div class="movies" *ngFor="let movie of Trendingmovies">
+            <div class="movies" *ngFor="let movie of Trendingmovies | filter:searchterm:'name' ">
         <div class="cover" (click)="gotomovie('trending', movie.id)">
             <img  [src]="movie.cover" alt="">
          </div>
@@ -19,6 +19,9 @@
             <app-rating [rating]="movie.rating"></app-rating>
              </div>
          </div>
+         <ng-container *ngIf="Trendingmovies.length>0 && searchterm.length!==0">
+            <p>No Movies are avaliable on this name</p>
+         </ng-container>
         </div>
         </div>
     <!-- thater movies will start here  -->
@@ -28,7 +31,7 @@
             <div class="view-all">Viewall</div>
         </div>
         <div class="movies-thumnail">
-            <div class="movies" *ngFor="let tmovies of theatermovies">
+            <div class="movies" *ngFor="let tmovies of theatermovies | filter:searchterm:'name'">
         <div class="cover" (click)="gotomovie('theater', tmovies.id)">
             <img  [src]="tmovies.cover" alt="">
          </div>

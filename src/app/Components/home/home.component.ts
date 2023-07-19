@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router } from '@angular/router';
+import { SahreddataService } from 'src/app/services/sahreddata.service';
 
 
 @Component({
@@ -10,23 +11,29 @@ import {Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  Trendingmovies:any;
-  theatermovies:any;
-  papularmovies:any;
+  Trendingmovies:any=[];
+  theatermovies:any=[];
+  papularmovies:any=[];
+  searchterm:string="";
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(private http:HttpClient, private router:Router, private sharedservice:SahreddataService) { }
 
   ngOnInit(): void {
     this.getmovies();
     this.gettheatremvoies();
     this.popularmovies();
+    this.sharedservice.shared.subscribe((val)=>{
+      this.searchterm=val;
+      console.log(this.searchterm.length);
+      console.log("vamsi"+ +val);
+    })
   }
   //trending movies
  getmovies(){
 this.http.get('http://localhost:4200/assets/data/trending-movies.json')
 .subscribe((movies)=>{
    this.Trendingmovies=movies;
-   console.log(movies);
+   console.log(this.Trendingmovies.length && this.searchterm.length);
 })
  }
 //getting theater mvores
