@@ -8,7 +8,7 @@
         </div>
         <div class="movies-thumnail">
             <div class="movies" *ngFor="let movie of Trendingmovies">
-        <div class="cover">
+        <div class="cover" (click)="gotomovie('trending', movie.id)">
             <img  [src]="movie.cover" alt="">
          </div>
          <div class="details">
@@ -21,6 +21,47 @@
          </div>
         </div>
         </div>
+    <!-- thater movies will start here  -->
+    <div class="trending-movies">
+        <div class="top">
+            <h4>theater movies</h4>
+            <div class="view-all">Viewall</div>
+        </div>
+        <div class="movies-thumnail">
+            <div class="movies" *ngFor="let tmovies of theatermovies">
+        <div class="cover" (click)="gotomovie('theater', tmovies.id)">
+            <img  [src]="tmovies.cover" alt="">
+         </div>
+         <div class="details">
+             <div class="name">
+             {{tmovies.name}}
+             </div>
+            <!-- rating remove -->
+            <app-rating [rating]="tmovies.rating"></app-rating>
+             </div>
+         </div>
+        </div> 
     </div>
-    <div class="popular-movies"></div>
+</div>
+     <!-- popular movies will start here  -->
+    <div class="popular-movies">
+        <div class="top">
+            <h4>popular movies</h4>
+            <div class="view-all">Viewall</div>
+        </div>
+        <div class="movies-thumnail">
+            <div class="movies" *ngFor="let pmovies of papularmovies">
+        <div class="cover" (click)="gotomovie('papularmovies', pmovies.id)">
+            <img  [src]="pmovies.cover" alt="">
+         </div>
+         <div class="details">
+             <div class="name">
+             {{pmovies.name}}
+             </div>
+            <!-- rating remove -->
+            <app-rating [rating]="pmovies.rating"></app-rating>
+             </div>
+         </div>
+        </div> 
+    </div>
 </div>

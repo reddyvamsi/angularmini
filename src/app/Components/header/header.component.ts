@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,9 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private router:Router, private auth:AuthService) { }
+  @Input() products:any
+
+  textselect:string=""
+alldata:any;
+filterdata:any;
+
+  constructor(private httP:HttpClient, private router:Router, private auth:AuthService, ) { }
 
   ngOnInit(): void {
+    this.getmovies();
   }
 
 // naviagte to home 
@@ -24,4 +33,19 @@ console.log("vamsi");
  this.auth.logout()
  }
 
+ getmovies(){
+  this.httP.get('http://localhost:4200/assets/data/trending-movies.json')
+  .subscribe((movies)=>{
+     this.alldata=movies;
+     this.filterdata=movies;
+     console.log(movies);
+  })
+   }
+
+ searchfun(){
+  console.log(this.textselect);
+  this.filterdata=this.alldata.filter((P:any)=>{
+     return P.name.toLowerCase().includes(this.textselect.toLocaleLowerCase,)
+  })
+ }
 }

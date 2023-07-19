@@ -35,7 +35,7 @@ h4 {
   display: flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  
+  margin-bottom: 30px;
 }
 img {
   border-radius: 5px;

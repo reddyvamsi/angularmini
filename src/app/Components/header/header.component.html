@@ -1,4 +1,12 @@
 <div class="header-container">
-    <div class="logo" (click)="gotohome()">Rotten potatoes</div>
-    <div class="logout" (click)="logout()">logout</div>
+  <div class="logo" (click)="gotohome()">Rotten potatoes</div>
+  <input
+    type="text"
+    class="form-control search"
+    placeholder="Find movie list"
+    [(ngModel)]="textselect"
+    (keyup)="searchfun()"
+  />
+  <P>{{textselect}}</P>
+  <div class="logout" (click)="logout()">logout</div>
 </div>
